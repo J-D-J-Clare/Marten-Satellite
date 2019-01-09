@@ -1,0 +1,48 @@
+model {
+    psi.sex~dbeta(1,1)
+    beta0.D~dunif(-10, 10)
+    beta1.D~dunif(-10, 10)
+    
+    alpha2~dunif(-10, 10)
+    alpha3~dunif(-10, 10)  
+    
+    
+    for (j in 1:nPix){
+    mu[j]<-exp(beta0.D+beta1.D*Harv[j])*pixArea
+    probs[j]<-mu[j]/EN
+    }
+    EN<-sum(mu[])    
+    psi<-EN/M
+    
+    for (t in 1:2){
+    alpha0[t]~dunif(-10, 10)
+    sigma[t] ~ dunif(0, 10)
+    alpha1[t]<-1/(2*sigma[t]*sigma[t])
+    
+    }
+    
+  
+    
+    for (i in 1:M) {####Number of individuals seen and imagined
+    z[i] ~ dbern(psi)
+    Sex[i]~dbern(psi.sex)
+    Sex2[i]<-Sex[i]+1
+    s[i]~dcat(probs[])
+    x0g[i]<-grid[s[i], 1]
+    y0g[i]<-grid[s[i], 2]    
+    
+    for (j in 1:238) {
+    d[i, j]<-sqrt((x0g[i]-traplocs[j,1])*(x0g[i]-traplocs[j,1])+(y0g[i]-traplocs[j,2])*(y0g[i]-traplocs[j,2]))
+    
+    for (k in 1:nchecks){
+    logit(p0[i,j,k])<-alpha0[Sex2[i]]+alpha2*C[i, j, k]+alpha3*season[j]
+    p[i, j, k]<-z[i]*p0[i, j, k]*exp(-alpha1[Sex2[i]]*d[i, j]*d[i, j])*active[j, k]
+    y[i, j, k]~dbern(p[i, j, k])
+    }
+    }
+    }
+    
+    N<-sum(z[])
+    A<-pixArea*nPix
+    }
+    

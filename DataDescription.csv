@@ -1,0 +1,25 @@
+File,Variable Name,File Description,Description
+"T5R11.csv, T5R10.csv, T4R11.csv",POINT_X,Township level information used for habitat-based density hindcasts,X Coordinate of cell within predictive region in given township (UTM 19)
+"T5R11.csv, T5R10.csv, T4R11.csv",POINT_Y,,Y Coordinate of cell within predictive region in given township (UTM 19)
+"T5R11.csv, T5R10.csv, T4R11.csv",HARV88,,Proportion of cell classified as previously harvested within disturbance layers from 1973-1988
+"T5R11.csv, T5R10.csv, T4R11.csv",HARV95,,Proportion of cell classified as previously harvested within disturbance layers from 1973-1995
+"T5R11.csv, T5R10.csv, T4R11.csv",HARV2010,,Proportion of cell classified as previously harvested within disturbance layers from 1973-2010
+"T5R11.csv, T5R10.csv, T4R11.csv",Dhat1988,,Estimated density for each cell in 1988
+"T5R11.csv, T5R10.csv, T4R11.csv",Dhat1995,,Estimated density for each cell in 1995
+"T5R11.csv, T5R10.csv, T4R11.csv",Dhat2015,,"Estimated density for each cell in 2010 (or 2015, the time of model fitting)"
+Traps.txt,Detector,"traps file used as input for 'secr' analysis. Can be converted for fitting in JAGS using functions in SCR book (note, user also needs to define a function to explicitly develop the 'C' or 'trap-happy' covariate).",numeric list of detectors
+Traps.txt,X,,X-coordinate of detector (UTM 19N).
+Traps.txt,Y,,Y-coordinate of detector (UTM 19N)
+Traps.txt,usage,,Whether the detector was active or not during a given check.
+Traps.txt,Early,,Whether the detector was active during 'Early' Winter or not.
+Habitat_Mask.csv,X,Mask' file used as input for 'secr' analysis.,X-coordinate of specific cell (UTM 19N).
+Habitat_Mask.csv,Y,,Y-coordinate of specific cell (UTM 19N)
+Habitat_Mask.csv,Heavy,,Proportion of cell classified as subject to previous 'heavy' harvest.
+Habitat_Mask.csv,Light,,Proportion of cell classified as subject to previous 'light' harvest.
+Habitat_Mask.csv,Harvest,,Proportion of cell classified as subject to harvest of any type
+Habitat_Mask.csv,MPI,,"Mean proximity index of 'unharvested' forest in cell. Standardized (mean 0, sd 1)"
+PredictiveRegion.csv,POINT_X,"The predictive region in the text (i.e., the region mapped out within the figures).",X Coordinate of cell within predictive region in given township (UTM 19)
+PredictiveRegion.csv,POINT_Y,,Y Coordinate of cell within predictive region in given township (UTM 19)
+PredictiveRegion.csv,HARV88,,Proportion of cell classified as previously harvested within disturbance layers from 1973-1988
+PredictiveRegion.csv,HARV95,,Proportion of cell classified as previously harvested within disturbance layers from 1973-1995
+PredictiveRegion.csv,HARV2010,,Proportion of cell classified as previously harvested within disturbance layers from 1973-2010
